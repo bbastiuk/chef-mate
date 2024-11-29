@@ -1,6 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from .models import Dish, Cook, DishType
 
 
+@login_required
 def index(request):
-    return HttpResponse("Welcome to Chef Mate!")
+    num_dishes = Dish.objects.count()
+    num_cooks = Cook.objects.count()
+    num_dish_types = DishType.objects.count()
+
+    num_visits = request.session.get("num_visits", 0)
+    request.session["num_visits"] = num_visits + 1
+
+    context = {
+        "num_dishes": num_dishes,
+        "num_cooks": num_cooks,
+        "num_dish_types": num_dish_types,
+        "num_visits": num_visits + 1,
+    }
+
+    return render(request, "dishes/index.html", context=context)
