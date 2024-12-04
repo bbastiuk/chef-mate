@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Are you sure you want to delete "{{ object.name }}"?</h1>
+  <p>This action cannot be undone.</p>
+  
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{% url 'dishes:dish-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
