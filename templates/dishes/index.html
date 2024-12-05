@@ -1,20 +1,24 @@
-<h1>Welcome to the Dishes App!</h1>
+{% extends "base.html" %}
 
-<p>Number of dishes: {{ num_dishes }}</p>
-<p>Number of cooks: {{ num_cooks }}</p>
-<p>Number of dish types: {{ num_dish_types }}</p>
-<p>Number of visits: {{ num_visits }}</p>
+{% block title %}
+<title>Chef Mate</title>
+{% endblock %}
 
-<h2>Dishes:</h2>
-<ul>
-    {% for dish in dishes %}
-        <li>{{ dish.name }} - {{ dish.price }}$</li>
-    {% endfor %}
-</ul>
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="text-center">Welcome to Chef Mate!</h1>
+        <p>The Chef Mate app has the following record counts:</p>
+        <ul>
+            <li><strong>Dishes:</strong> {{ num_dishes }}</li>
+            <li><strong>Cooks:</strong> {{ num_cooks }}</li>
+            <li><strong>Dish Types:</strong> {{ num_dish_types }}</li>
+        </ul>
 
-<h2>Dish Types:</h2>
-<ul>
-    {% for dish_type in dish_types %}
-        <li>{{ dish_type.name }}</li>
-    {% endfor %}
-</ul>
+        <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'dishes:dish-create' %}" class="btn btn-primary">Add New Dish</a>
+            <a href="{% url 'dishes:dish-type-create' %}" class="btn btn-secondary">Add New Dish Type</a>
+        </div>
+    </div>
+{% endblock %}

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
           crossorigin="anonymous">
     {% load static %}
@@ -14,29 +14,42 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-            {% block sidebar %}
-                <nav class="nav flex-column">
-                    <a class="nav-link active" href="{% url 'dishes:index' %}">Home</a>
-                    <a class="nav-link" href="{% url 'dishes:dish-type-list' %}">Dish Types</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index' %}">Chef Mate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'dishes:dish-list' %}">Dishes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dishes:dish-type-list' %}">Dish Types</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'dishes:cook-list' %}">Cooks</a>
-                </nav>
-            {% endblock %}
+                </li>
+            </ul>
         </div>
-        <div class="col-sm-10">
-            {% block content %}
-            <!-- Content of specific pages will be inserted here -->
-            {% endblock %}
+    </nav>
 
-            {% block pagination %}
-                {% include "includes/pagination.html" %}
-            {% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                {% block sidebar %}
+                    {% include "includes/sidebar.html" %}
+                {% endblock %}
+            </div>
+            <div class="col-sm-10">
+                {% block content %}{% endblock %}
+                {% block pagination %}
+                    {% include "includes/pagination.html" %}
+                {% endblock %}
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

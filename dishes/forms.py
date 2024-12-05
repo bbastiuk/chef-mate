@@ -27,10 +27,15 @@ class CookCreationForm(UserCreationForm):
         )
 
 
-class CookLicenseUpdateForm(forms.ModelForm):
+class CookUpdateForm(forms.ModelForm):
     class Meta:
         model = Cook
-        fields = ["years_of_experience"]
+        fields = [
+            "username",
+            "first_name",
+            "last_name",
+            "years_of_experience",
+        ]
 
 
 class CookSearchForm(forms.Form):

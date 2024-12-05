@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ object.name }}</h1>
+    <p>Description: {{ object.description }}</p>
+    <a href="{% url 'dishes:dish-type-update' object.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'dishes:dish-type-delete' object.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'dishes:dish-type-list' %}" class="btn btn-secondary">Back to list</a>
+</div>
+{% endblock %}

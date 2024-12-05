@@ -2,6 +2,7 @@
 
 {% block content %}
   <h1>Cook List</h1>
+  <a href="{% url 'dishes:cook-create' %}" class="btn btn-success mb-3">Add New Cook</a>
   <table class="table table-striped">
     <thead>
       <tr>
