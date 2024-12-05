@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ object.name }}</h1>
-  <p>Description: {{ object.description }}</p>
-  <p>Price: ${{ object.price }}</p>
-  <p>Dish Type: {{ object.dish_type.name }}</p>
-  <p>Cooked by:</p>
-  <ul>
-    {% for cook in object.cooks.all %}
-      <li>{{ cook.username }}</li>
-    {% endfor %}
-  </ul>
-  <a href="{% url 'dishes:dish-list' %}" class="btn btn-secondary">Back to Dish List</a>
+<div class="container">
+    <h1>{{ object.name }}</h1>
+    <p><strong>Price:</strong> ${{ object.price }}</p>
+    <p><strong>Type:</strong> {{ object.dish_type.name }}</p>
+    <a href="{% url 'dishes:dish-update' object.id %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'dishes:dish-delete' object.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'dishes:dish-list' %}" class="btn btn-secondary">Back to List</a>
+</div>
 {% endblock %}
