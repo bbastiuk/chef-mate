@@ -1,22 +1,19 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-
-    <a class="navbar-brand font-weight-bold" href="/">Chef Mate</a>
-
+    <a class="navbar-brand font-weight-bold" href="{% url 'dishes:index' %}">Chef Mate</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
+          <a class="nav-link active" href="{% url 'dishes:index' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="{% url 'dishes:about' %}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="{% url 'dishes:contact' %}">Contact</a>
         </li>
         <li class="nav-item">
           <form method="POST" action="{% url 'logout' %}" style="margin: 0; padding: 0; display: inline;">
