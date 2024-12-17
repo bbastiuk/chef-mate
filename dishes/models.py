@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.urls import reverse
 
 
 class DishType(models.Model):
@@ -37,5 +36,8 @@ class Dish(models.Model):
     dish_type = models.ForeignKey("DishType", on_delete=models.CASCADE, related_name="dishes")
     cooks = models.ManyToManyField("Cook", related_name="dishes")
 
+    class Meta:
+        ordering = ["name"]
+
     def __str__(self):
-        return f"{self.name} - {self.price}$"
+        return f"{self.name} - ${self.price}"
