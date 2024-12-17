@@ -135,4 +135,4 @@ AUTH_USER_MODEL = 'dishes.Cook'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-LOGOUT_REDIRECT_URL = '/accounts/logout/'
+LOGIN_REDIRECT_URL = '/'

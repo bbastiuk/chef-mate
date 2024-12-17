@@ -20,4 +20,6 @@ urlpatterns = [
     path("cooks/create/", views.CookCreateView.as_view(), name="cook-create"),
     path("cooks/<int:pk>/update/", views.CookUpdateView.as_view(), name="cook-update"),
     path("cooks/<int:pk>/delete/", views.CookDeleteView.as_view(), name="cook-delete"),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
 ]

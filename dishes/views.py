@@ -10,18 +10,19 @@ from .forms import CookCreationForm, CookUpdateForm
 
 @login_required
 def index(request):
-    dishes = Dish.objects.all()
+    latest_dishes = Dish.objects.all().order_by('-id')[:3]
     dish_types = DishType.objects.all()
+    num_visits = request.session.get("num_visits", 0) + 1
+    request.session["num_visits"] = num_visits
+
     context = {
-        "num_dishes": dishes.count(),
+        "num_dishes": Dish.objects.count(),
         "num_cooks": Cook.objects.count(),
         "num_dish_types": dish_types.count(),
-        "dishes": dishes,
-        "dish_types": dish_types,
-        "num_visits": request.session.get("num_visits", 0) + 1,
+        "latest_dishes": latest_dishes,
+        "num_visits": num_visits,
     }
-    request.session["num_visits"] = context["num_visits"]
-    return render(request, "dishes/index.html", context=context)
+    return render(request, "dishes/index.html", context)
 
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
@@ -108,6 +109,14 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
     success_url = reverse_lazy("dishes:cook-list")
+
+
+def about(request):
+    return render(request, 'dishes/about.html')
+
+
+def contact(request):
+    return render(request, 'dishes/contact.html')
 
 
 def toggle_assign_to_dish(request, pk):
