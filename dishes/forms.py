@@ -1,9 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from django.core.exceptions import ValidationError
-
-from .models import Dish, Cook, DishType
+from dishes.models import Dish, Cook
 
 
 class DishForm(forms.ModelForm):

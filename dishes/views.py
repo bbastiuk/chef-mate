@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Dish, Cook, DishType
-from .forms import CookCreationForm, CookUpdateForm
+from dishes.models import Dish, Cook, DishType
+from dishes.forms import CookCreationForm, CookUpdateForm
 
 
 @login_required
