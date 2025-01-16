@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from dishes.models import Dish, Cook, DishType
 from dishes.forms import CookCreationForm, CookUpdateForm
 from django.contrib.auth import get_user_model
+from django.core.management import call_command
 
 
 @login_required
@@ -24,6 +25,10 @@ def index(request):
         "num_visits": num_visits,
     }
     return render(request, "dishes/index.html", context)
+
+def load_data():
+    call_command('loaddata', 'data.json')
+    print("Data successfully loaded.")
 
 User = get_user_model()
 
