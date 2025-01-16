@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from dishes.models import Dish, Cook, DishType
 from dishes.forms import CookCreationForm, CookUpdateForm
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 
 @login_required
@@ -25,6 +25,8 @@ def index(request):
     }
     return render(request, "dishes/index.html", context)
 
+User = get_user_model()
+
 if not User.objects.filter(username='testuser').exists():
     User.objects.create_user(
         username='testuser',
@@ -34,8 +36,6 @@ if not User.objects.filter(username='testuser').exists():
     print("Test user created: testuser")
 else:
     print("Test user already exists.")
-
-
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
