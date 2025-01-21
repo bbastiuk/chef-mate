@@ -8,6 +8,10 @@ Chef Mate is a tool designed to make cooking and recipe management easier. It he
 - **Meal Planning:** Plan meals for the week with ease.
 - **Pantry Management:** Keep track of what you have at home.
 
+## Deployed Project
+
+You can view the live version of the project here: [Chef Mate](https://chef-mate.onrender.com/)
+
 ## Installation
 
 1. Clone the repository:
