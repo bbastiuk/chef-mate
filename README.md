@@ -17,3 +17,12 @@ You can view the live version of the project here: [Chef Mate](https://chef-mate
 1. Clone the repository:
    ```bash
    git clone https://github.com/bbastiuk/chef-mate.git
+   
+## Test User Credentials
+
+You can log in to the site using the following test user account to explore the functionality:
+
+- **Login:** `testuser`
+- **Password:** `test123`
+
+Enjoy exploring Chef Mate!
