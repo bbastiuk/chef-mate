@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-transparent position-absolute w-100">
+  <div class="container">
+    <a class="navbar-brand text-white" href="/">Soft UI Design System</a>
+    <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navigation">
+      <span class="navbar-toggler-icon">
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav w-100">
+        <!-- Pages Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/page-about-us.html">About Us</a></li>
+            <li><a class="dropdown-item" href="/page-contact-us.html">Contact Us</a></li>
+            <li><a class="dropdown-item" href="/page-author.html">Author</a></li>
+            <li><a class="dropdown-item" href="/page-sign-in.html">Sign In</a></li>
+            <li><a class="dropdown-item" href="/page-sign-up.html">Register</a></li>
+          </ul>
+        </li>
+        <!-- Blocks Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blocks</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/page-sections-hero-sections.html">Page Headers</a></li>
+            <li><a class="dropdown-item" href="/page-sections-features.html">Features</a></li>
+            <li><a class="dropdown-item" href="/elements-buttons.html">Buttons</a></li>
+          </ul>
+        </li>
+        <!-- Help Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Help</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="https://appseed.us/support">Support</a></li>
+            <li><a class="dropdown-item" href="https://bit.ly/2NiYjQA">Getting Started</a></li>
+          </ul>
+        </li>
+        <!-- Logout Button -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">
+            <i class="fa fa-sign-out"></i> Logout
+          </a>
+        </li>
+        <!-- Pro Version Button -->
+        <li class="nav-item">
+          <a href="https://appseed.us/product/soft-ui-design-pro/django/" target="_blank" class="btn btn-sm btn-white btn-round">PRO Version</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
